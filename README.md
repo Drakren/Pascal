@@ -1,2 +1,2 @@
 # Pascal
-A repo for pascal (mazesolver v3)
+A repo for Pascal (Micromouse v3)
