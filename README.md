@@ -70,7 +70,7 @@
 | IMU | ISM330DHCX | Industrial-grade; eliminates heading noise present in v2 |
 | Wall Sensors | Custom IR Circuitry | In-house design providing significantly narrower detection cones than ultrasonics |
 | Motors | N20 Geared DC (300 RPM) | Integrated quadrature encoders, 3 PPR on the shaft, for distance/speed feedback |
-| Chassis | Zero board (protoboard), 10 x 12 cm, ~200g | Compact footprint and low mass, engineered for a reduced turning radius |
+| Chassis | Zero board (protoboard), 12 x 8 cm, ~200g | Compact footprint and low mass, engineered for a reduced turning radius |
 
 <p align="center">
   <img src="PascalMiscVideosAndPics/Top.jpeg" width="420" alt="Pascal — top view showing motor and sensor layout"/>
