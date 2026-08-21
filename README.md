@@ -5,7 +5,7 @@
 > sensors, an industrial-grade IMU, and a transition from AVR to the STM32G431 architecture —
 > engineered for high-speed, reliable maze-solving.
 
-[![Demo Video](https://img.shields.io/badge/▶-Watch_Winning_Run-red)](https://youtu.be/90-_f9ux91c)
+[![Demo Video](https://img.shields.io/badge/▶-Watch_Winning_Run-red)](https://youtu.be/osh39MlWybo)
 ![Platform](https://img.shields.io/badge/platform-STM32-blue)
 ![Language](https://img.shields.io/badge/language-C-orange)
 
@@ -53,9 +53,7 @@
 - **Leadership Scope:** Directed the transition from AVR to STM32, established the project timeline for the APOGEE '26 competition, coordinated hardware/firmware integration across subteams, and maintained the central repository (including branch strategy, code reviews, and PR merges).
 
 ## Demo
-🎥 [Watch Pascal's winning maze-solving run at APOGEE '26](https://youtu.be/90-_f9ux91c)
-
-The GIF at the top of this README is Pascal live-navigating a maze — the green sensor glow visible on the protoboard is the custom IR array actively reading walls in real time.
+[Demo Video](https://youtu.be/90-_f9ux91c)
 
 ## System Architecture
 ```text
