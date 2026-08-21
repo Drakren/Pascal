@@ -12,10 +12,6 @@
 <p align="center">
   <img src="PascalMiscVideosAndPics/MicromouseDemoGif.gif" width="600" alt="Pascal sprinting through a maze"/>
 </p>
-<p align="center">
-  <img src="PascalMiscVideosAndPics/Top.jpeg" width="440" alt="Pascal — top view"/>
-  <img src="PascalMiscVideosAndPics/Bottom.jpeg" width="440" alt="Pascal — bottom view, IR sensor ring"/>
-</p>
 
 > **Team Project — Lead Architect & Project Owner.** Pascal was engineered at the SAE Club, UIET (Panjab University), where I served as the overall Project Lead. This repository (`SAE-Projects/Pascal`) is the official team repository, which I manage and maintain. This fork (`Drakren/Pascal`) mirrors the project under my personal profile. See [My Role](#my-role) for team dynamics, responsibilities, and individual technical contributions.
 
@@ -53,7 +49,9 @@
 - **Leadership Scope:** Directed the transition from AVR to STM32, established the project timeline for the APOGEE '26 competition, coordinated hardware/firmware integration across subteams, and maintained the central repository (including branch strategy, code reviews, and PR merges).
 
 ## Demo
-[Demo Video](https://youtu.be/90-_f9ux91c)
+🎥 [Watch Pascal's winning maze-solving run at APOGEE '26](https://youtu.be/osh39MlWybo)
+
+The GIF at the top of this README is Pascal live-navigating a maze — the green sensor glow visible on the protoboard is the custom IR array actively reading walls in real time.
 
 ## System Architecture
 ```text
@@ -75,6 +73,12 @@
 | Wall Sensors | Custom IR Circuitry | In-house design providing significantly narrower detection cones than ultrasonics |
 | Motors | N20 Geared DC (300 RPM) | Integrated quadrature encoders, 3 PPR on the shaft, for distance/speed feedback |
 | Chassis | Zero board (protoboard), 10 x 12 cm, ~200g | Compact footprint and low mass, engineered for a reduced turning radius |
+
+<p align="center">
+  <img src="PascalMiscVideosAndPics/Top.jpeg" width="420" alt="Pascal — top view showing motor and sensor layout"/>
+  <img src="PascalMiscVideosAndPics/Bottom.jpeg" width="420" alt="Pascal — bottom view showing custom IR sensor ring"/>
+</p>
+<p align="center"><i>Top view (left) shows the compact protoboard layout with motors and control electronics; bottom view (right) shows the custom IR sensor ring around the chassis perimeter.</i></p>
 
 ## How It Works
 The maze-solving pipeline runs in two coupled stages:
