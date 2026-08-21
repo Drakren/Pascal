@@ -49,9 +49,7 @@
 - **Leadership Scope:** Directed the transition from AVR to STM32, established the project timeline for the APOGEE '26 competition, coordinated hardware/firmware integration across subteams, and maintained the central repository (including branch strategy, code reviews, and PR merges).
 
 ## Demo
-🎥 [Watch Pascal's winning maze-solving run at APOGEE '26](https://youtu.be/osh39MlWybo)
-
-The GIF at the top of this README is Pascal live-navigating a maze — the green sensor glow visible on the protoboard is the custom IR array actively reading walls in real time.
+[Pascal Demo Video](https://youtu.be/osh39MlWybo)
 
 ## System Architecture
 ```text
@@ -135,7 +133,7 @@ Pascal wasn't a chassis tweak — it was a full rework of every system that limi
 | **Wall Sensing** | Ultrasonic (wide cone, false corners) | Custom in-house discrete IR circuitry |
 | **IMU** | MPU9255 (clone, noisy) | ISM330DHCX (industrial-grade) |
 | **Odometry** | High drift (wheel slip + AVR interrupt drops) | Highly stable (high-res timers + hardware interrupt handling) |
-| **Chassis** | 16 x 11, double layer pcb, ~450g | 12 x 8 cm, single layer pcb, ~200g |
+| **Chassis** | 16 x 11, double layer, ~450g | 12 x 8 cm, single layer, ~200g |
 | **Solve Time** | 330 seconds (16x16 maze) | 55 seconds (16x16 maze) |
 | **Key Change** | Prototyping focus | Full sensor & MCU rework prioritizing accuracy and stability |
 
