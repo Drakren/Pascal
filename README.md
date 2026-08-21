@@ -135,9 +135,9 @@ Pascal wasn't a chassis tweak — it was a full rework of every system that limi
 | **Wall Sensing** | Ultrasonic (wide cone, false corners) | Custom in-house discrete IR circuitry |
 | **IMU** | MPU9255 (clone, noisy) | ISM330DHCX (industrial-grade) |
 | **Odometry** | High drift (wheel slip + AVR interrupt drops) | Highly stable (high-res timers + hardware interrupt handling) |
-| **Chassis** | *(add v2 size/weight if you have it)* | 10 x 12 cm, ~200g |
-| **Solve Time** | *(add v2 time if known)* | 55 seconds (16x16 maze) |
-| **Key Change** | Prototyping focus | Full sensor & MCU rework prioritizing speed and stability |
+| **Chassis** | 16 x 11, double layer pcb, ~450g | 12 x 8 cm, single layer pcb, ~200g |
+| **Solve Time** | 330 seconds (16x16 maze) | 55 seconds (16x16 maze) |
+| **Key Change** | Prototyping focus | Full sensor & MCU rework prioritizing accuracy and stability |
 
 ## Acknowledgements
 Built by the SAE Club Micromouse team (**Team Mozzarella**) at UIET, Panjab University, which I led. Built on the design foundation of the earlier iteration, [Heisenberg](https://github.com/Drakren/Heisenberg). Full competition documentation available in [`APOGEE.pdf`](APOGEE.pdf).
