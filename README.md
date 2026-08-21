@@ -40,7 +40,7 @@
 - **Industrial-Grade IMU:** Integrated the ISM330DHCX to replace the noisy clone sensor, dramatically improving heading stability.
 - **STM32G431 MCU Integration:** Upgraded the compute stack to leverage the STM32's Floating-Point Unit (FPU), Data Watchpoint and Trace (DWT) unit, and high-resolution timers. This provided the crucial signal-processing headroom and real-time control precision that the previous AVR architecture could not support.
 
-**Outcome:** Pascal won APOGEE '26, solving a 16x16 maze (20x20cm cells) in 55 seconds on its fastest run.
+**Outcome:** Pascal won APOGEE '26, solving a 16x16 maze (20x20cm cells) in 55 seconds on its fastest run — a 6x improvement over Heisenberg's 330-second solve on the same maze size.
 
 ## My Role
 - **Role:** Project Owner & Team Lead, SAE Micromouse Team.
@@ -71,6 +71,7 @@
 | Wall Sensors | Custom IR Circuitry | In-house design providing significantly narrower detection cones than ultrasonics |
 | Motors | N20 Geared DC (300 RPM) | Integrated quadrature encoders, 3 PPR on the shaft, for distance/speed feedback |
 | Chassis | Zero board (protoboard), 12 x 8 cm, ~200g | Compact footprint and low mass, engineered for a reduced turning radius |
+| MCU Board | WeAct Studio STM32G431CxUx Core Board | See [`MCUBoardSchematic.pdf`](MCUBoardSchematic.pdf) for reference schematic |
 
 <p align="center">
   <img src="PascalMiscVideosAndPics/Top.jpeg" width="420" alt="Pascal — top view showing motor and sensor layout"/>
@@ -85,7 +86,9 @@ The maze-solving pipeline runs in two coupled stages:
 - **Path planning:** A flood-fill algorithm builds a cost matrix over the explored maze, combined with BFS to compute the shortest known path as exploration progresses.
 - **Motion control:** A PD control loop, retuned for Pascal's lighter frame, regulates wheel speed against encoder feedback, converting planned paths into motor commands.
 
-Core logic lives under [`Core/`](Core/) — *(once you point me to the specific source files for flood-fill, PD control, and sensor fusion inside `Core/Src`, I can link each bullet above directly to its file so a reviewer can jump straight to the code)*.
+Core logic lives under [`FinalPascal/Core/`](FinalPascal/Core/) — *(once you point me to the specific source files for flood-fill, PD control, and sensor fusion inside `Core/Src`, I can link each bullet above directly to its file so a reviewer can jump straight to the code)*.
+
+For hardware verification, the full schematics are available in [`PascalSchematic.pdf`](PascalSchematic.pdf) (custom IR sensor circuitry and overall board design) and [`MCUBoardSchematic.pdf`](MCUBoardSchematic.pdf) (WeAct Studio STM32G431 core board reference).
 
 ## Results
 - **Competition:** Won APOGEE '26.
@@ -101,26 +104,33 @@ STM32CubeIDE / STM32CubeMX
 ### Build & Flash
 ```bash
 git clone https://github.com/Drakren/Pascal.git
-cd Pascal
+cd Pascal/FinalPascal
 ```
 Open the project via `Fresh_Pascal.ioc` in STM32CubeIDE, compile, and flash to the STM32G431 target.
 
 ## Repository Structure
 ```
 .
-├── .settings/
-├── Core/                        # main application source (HAL config, control logic, sensor drivers)
-├── Debug/                       # build output
-├── Drivers/                     # STM32 HAL / CMSIS drivers
+├── FinalPascal/                  # main firmware project (STM32CubeIDE)
+│   ├── .settings/
+│   ├── Core/                     # application source (HAL config, control logic, sensor drivers)
+│   ├── Debug/                    # build output
+│   ├── Drivers/                  # STM32 HAL / CMSIS drivers
+│   ├── .cproject
+│   ├── .mxproject
+│   ├── .project
+│   ├── Fresh_Pascal Debug.launch
+│   ├── Fresh_Pascal.ioc          # STM32CubeMX project config
+│   └── STM32G431CBUX_FLASH.ld
 ├── PascalMiscVideosAndPics/
 │   ├── Top.jpeg
 │   ├── Bottom.jpeg
 │   ├── MicromouseDemoGif.gif
 │   └── micromouseDemo.mp4
-├── APOGEE.pdf                   # competition documentation
+├── APOGEE.pdf                    # competition documentation
+├── MCUBoardSchematic.pdf          # WeAct Studio STM32G431CxUx core board schematic
+├── PascalSchematic.pdf            # full board schematic, incl. custom IR sensor circuitry
 ├── Team Mozzarella.pdf
-├── Fresh_Pascal.ioc              # STM32CubeMX project config
-├── STM32G431CBUX_FLASH.ld
 └── README.md
 ```
 
@@ -133,12 +143,12 @@ Pascal wasn't a chassis tweak — it was a full rework of every system that limi
 | **Wall Sensing** | Ultrasonic (wide cone, false corners) | Custom in-house discrete IR circuitry |
 | **IMU** | MPU9255 (clone, noisy) | ISM330DHCX (industrial-grade) |
 | **Odometry** | High drift (wheel slip + AVR interrupt drops) | Highly stable (high-res timers + hardware interrupt handling) |
-| **Chassis** | 16 x 11, double layer, ~450g | 12 x 8 cm, single layer, ~200g |
+| **Chassis** | 16 x 11 cm, double layer, ~450g | 12 x 8 cm, single layer, ~200g |
 | **Solve Time** | 330 seconds (16x16 maze) | 55 seconds (16x16 maze) |
 | **Key Change** | Prototyping focus | Full sensor & MCU rework prioritizing accuracy and stability |
 
 ## Acknowledgements
-Built by the SAE Club Micromouse team (**Team Mozzarella**) at UIET, Panjab University, which I led. Built on the design foundation of the earlier iteration, [Heisenberg](https://github.com/Drakren/Heisenberg). Full competition documentation available in [`APOGEE.pdf`](APOGEE.pdf).
+Built by the SAE Club Micromouse team (**Team Mozzarella**) at UIET, Panjab University, which I led. Built on the design foundation of the earlier iteration, [Heisenberg](https://github.com/Drakren/Heisenberg). Full competition documentation available in [`APOGEE.pdf`](APOGEE.pdf); full hardware documentation available in [`PascalSchematic.pdf`](PascalSchematic.pdf) and [`MCUBoardSchematic.pdf`](MCUBoardSchematic.pdf).
 
 ---
 **Author:** Mohammed Talha · [LinkedIn](https://www.linkedin.com/in/talha-mohammed-13-04-eee)
